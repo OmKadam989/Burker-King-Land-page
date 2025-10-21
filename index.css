@@ -1,0 +1,24 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    overflow: hidden;
+    color: white;
+    background-color: black;
+    animation: fadeIn 1s ease-in-out;
+    background-attachment: fixed;
+}
+header{
+    height: 100vh;
+    width: 100%;
+    animation: fadeIn 1s ease-in-out;
+    background-color: transparent;
+}
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    animation: fadeIN 1s ease-in-out;
+
+}
