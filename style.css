@@ -2,9 +2,10 @@
     margin:0;
     padding:0;
     text-decoration: none;
+    box-sizing: border-box;
 }
 body{
-    overflow: hidden;
+    overflow-x: hidden;
     color: white;
     background-color: black;
     animation: fadeIn 1s ease-in-out;
@@ -20,8 +21,7 @@ header{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    animation: fadeIN 1s ease-in-out;
-
+    animation: fadeIn 1s ease-in-out;
 }
 .navbar img{
     width: 50px;
@@ -44,17 +44,23 @@ header{
 
 .text{
     position: relative;
-    top: 11rem;
+    top: 8rem; /* slightly adjusted */
     left: 10rem;
     letter-spacing: 1px;
     animation: fadeInUp 1s ease-in-out;
+    margin-bottom: 200px; /* 👈 adds space so burger-cart doesn’t overlap */
 }
 .text h1{
     font-size: 4rem;
     font-weight: bold;
     font-family: sans-serif;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     animation: fadeInUp 1s ease-in-out;
+}
+.text p{
+    width: 46%;
+    animation: fadeInUp 1s ease-in-out 1s backwards;
+    margin-bottom: 30px; /* 👈 spacing between paragraph and button */
 }
 .btn{
     border: 2px solid;
@@ -63,32 +69,29 @@ header{
     top: 3rem;
     padding-left: 25px;
     padding-right: 25px;
-    padding-bottom: 0px;
-    padding-top: 0px;
+    padding-bottom: 14px;
+    padding-top: 14px;
     border-radius: 6px;
     transition: all 0.5s ease;
     margin-right: 15px;
     animation: fadeInUp 1s ease-in-out 0.5s backwards;
+    z-index: 2; /* 👈 ensures button stays above burger-cart if close */
 }
 .text .btn:hover{
     color: orange;
     transition: 0pc, 10pc, 30px, orange;
 }
 
-.text p{
-    width: 46%;
-    animation: fadeInUp 1s ease-in-out 1s backwards;
-}
 .burger-cart{
     position: fixed;
-    bottom: 20px;
+    bottom: 10px; /* slightly lower */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     width: 90%;
     padding: 20px;
     animation: slideInFromBottom 1s ease-in-out 1.5s backwards;
-
+    z-index: 1; /* ensures it stays behind the text/buttons */
 }
 .burger-cart img{
     width: 100px;
@@ -98,7 +101,6 @@ header{
     border: 2px solid white;
     transition: transform 0.3s ease;
     animation: fadeInUp 1s ease-in-out 2s backwards;
-     
 }
 .burger-cart img:hover{
     transform: scale(1.1);
@@ -114,16 +116,24 @@ header{
     animation: fadeInUp 1s ease-in-out 2.5s backwards;
 }
 .burger-cart, .floating-burger{
-    display: flex
+    display: flex;
 }
-
-@keyframes rotateIn{
+@keyframes fadeIn{
     from{
-        transform: rotate3d(0,0,1,-200deg);
         opacity: 0;
     }
     to{
-        transform: none;
         opacity: 1;
+    }
+
+}
+@keyframes fadeInUp{
+    from{
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
     }
 }
